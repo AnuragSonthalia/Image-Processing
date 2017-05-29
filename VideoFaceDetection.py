@@ -1,7 +1,7 @@
 from FaceDetect import FaceDetector
 import argparse
 import cv2
-import imutils
+import imutils1
 
 ap=argparse.ArgumentParser()
 ap.add_argument("-f","--face",required=True,help="path to where the face cascade resides")
@@ -19,7 +19,7 @@ while True:
     (grabbed,frame)=camera.read()
     if args.get("video") and not grabbed:
         break
-    frame=imutils.resize(frame,width=300)
+    frame=imutils1.resize(frame,width=300)
     gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     faceRects=fd.detect(gray,scalefactor=1.1,minneighbors=5,minsize=(30,30))
     frameClone=frame.copy()
